@@ -29,7 +29,9 @@ def queryDataBase():
         connection.close()
         return result
 
-
+def bluetoothScann():
+    #TODO    
+    
 queryDataBase()
 for item in result:
     print item
