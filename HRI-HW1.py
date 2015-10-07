@@ -45,7 +45,7 @@ def sayHi(available_devices):
     if available_devices[index][0] not in blacklist: 
         print "Saludando ..."
         blacklist.append(available_devices[index][0])
-        print available_devices[index][0]
+        print "Hola %s!" % available_devices[index][1]
         print "Usuario agregado a blacklist para no repetir saludo"
         return 0
     print "Usuario en blacklist, buscar otro usuario..."
