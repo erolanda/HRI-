@@ -18,7 +18,7 @@ def queryDataBase():
         dbhandler = connection.cursor()
         dbhandler.execute("SELECT * from datos")
         result = dbhandler.fetchall()
-        print "Base de datos actualizada"
+        #print "Base de datos actualizada"
     except Exception as e:
         print e
     
@@ -28,9 +28,9 @@ def queryDataBase():
 
 def bluetoothScann():
     threading.Timer(30.0, bluetoothScann).start()
-    print "Realizando escaneo bluetooth"
+    #print "Realizando escaneo bluetooth"
     nearby_devices = bluetooth.discover_devices(duration=8, lookup_names=True, flush_cache=True, lookup_class=False)
-    print "Escaneo terminado"
+    #print "Escaneo terminado"
     available_devices = []
     for item in nearby_devices:
         for element in result:
@@ -41,14 +41,14 @@ def bluetoothScann():
 def sayHi(available_devices):
     number_devices = len(available_devices) - 1
     index = randint(0,number_devices)
-    print "Saludar a usuario con MAC %s" % (available_devices[index][0])
+    #print "Saludar a usuario con MAC %s" % (available_devices[index][0])
     if available_devices[index][0] not in blacklist: 
-        print "Saludando ..."
+        #print "Saludando ..."
         blacklist.append(available_devices[index][0])
         print "Hola %s!" % available_devices[index][1]
-        print "Usuario agregado a blacklist para no repetir saludo"
+        #print "Usuario agregado a blacklist para no repetir saludo"
         return 0
-    print "Usuario en blacklist, buscar otro usuario..."
+    #print "Usuario en blacklist, buscar otro usuario..."
     if (len(blacklist) == len(available_devices)):
         print "Ya no hay usuarios para saludar"
         return 0
